@@ -105,7 +105,7 @@ def main():
     print("The Plaintext pairs:","".join(str(x) for x in plaintext_pairs))
     ciphered=rules(mat,plaintext_pairs)
     print("The ciphered text:","".join(str(x) for x in ciphered))
-    
+     
     
 if __name__=="__main__":
     main()
