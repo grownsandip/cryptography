@@ -13,7 +13,7 @@ class LFSR:
         return lfsr
 
     def step(self):
-        #Performs one step of LFSR and returns the output bit."""
+        #Performs one step of LFSR and returns the output bit.
         feedback = 0
         for tap in self.taps:
             feedback ^= self.lfsr[tap]
@@ -60,7 +60,7 @@ def non_linear(all_seq):
     print(final)
        
 def func(a,b):
-    return (a & ~b)|(b & ~a)
+    return (a & ~b)^(b & ~a)
 def main():
     num=int(input("Enter the number of LFSR you would like:"))
     lfsr_list=[]
