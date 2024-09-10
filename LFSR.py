@@ -53,8 +53,14 @@ def get_inputs():
     tapsCheck(taps, bits)
     
     return seed, bits, steps, taps
+def non_linear(all_seq):
+    final=all_seq[0]
+    for seq in all_seq[1:]:
+            final=[func(a,b) for a,b in zip(final,seq)]
+    print(final)
        
-    
+def func(a,b):
+    return (a & ~b)|(b & ~a)
 def main():
     num=int(input("Enter the number of LFSR you would like:"))
     lfsr_list=[]
@@ -64,10 +70,14 @@ def main():
         lfsr=LFSR(seed,bits,taps)
         lfsr_list.append((lfsr,steps))
     #Generate print sequences for all lfsrs
+    all_seq=[]
     for i,(lfsr,steps) in enumerate(lfsr_list):
         print(f"\nSequence for #{i+1} LFSR:")
         sequence=lfsr.generate_sequence(steps)
         print(sequence)
+        all_seq.append(sequence)
+    print("\n The Non liner output of the LFSR is:")
+    non_linear(all_seq)
 
 if __name__=="__main__":
     main()
