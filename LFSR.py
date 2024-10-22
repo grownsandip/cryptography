@@ -76,7 +76,7 @@ def main():
         sequence=lfsr.generate_sequence(steps)
         print(sequence)
         all_seq.append(sequence)
-    print("\n The Non liner output of the LFSR is:")
+    print("\n The Non linear output of the LFSRs are:")
     non_linear(all_seq)
 
 if __name__=="__main__":
